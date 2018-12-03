@@ -17,6 +17,6 @@ class DataReader:
 
     def GetDataAmongPeriodWithGrouping(self, UPC, startDate, endDate):
         specificData = self.GetDataAmongPeriod(UPC, startDate, endDate)
-        specificData = specificData.groupby(['PRICE'], as_index=False)
+        specificData = specificData.groupby(['PRICE', 'Week_and_date'], as_index=False)
         specificData = specificData['Units'].sum()
         return specificData
